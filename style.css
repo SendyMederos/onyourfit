@@ -176,10 +176,16 @@ a.pure-button-primary {
     font-family: 'Faster One', cursive;
     font-size: 120px;
     color: chocolate;
-    font-stretch: expanded;
+    /* font-stretch: expanded; */
     padding-top: 35px;
     margin-left: 17%;
+
+        /* display: inline-block; */
+        /* margin: 0 0.5rem; */
       
+        animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
+        animation-duration: 2s; /* don't forget to set a duration! */
+      }   
 
 }
 
