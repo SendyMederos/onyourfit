@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <!--Website Header-->
     <title>Home</title>
 
@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <!--jQuery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -53,7 +56,7 @@
         <div class="search-container">
             <div class="citySearch">
                 <label for="citySearch">Search For a City: </label><input type="text" id="search-bar"
-                    placeholder="Enter A City"><button class="btn"><i class="fa fa-search"></i></button>
+                    placeholder="Enter A City"></input><button class="btn" id = "submit"><i class="fa fa-search"></i></button>
             </div>
 
             <div class="dropDown">
@@ -78,6 +81,7 @@
                     <option value="dry">Dry</option>
                     <option value="flat">Flat</option>
                 </select>
+                <button class = "currentLocation"> Get current location </button><br>
             </div>
 
             <div class="displayBox"></div>
@@ -85,9 +89,7 @@
 
 
         </div>
-        </div>
-        </div>
-        </div>
+        
         <div class="footer l-box is-center">
             Take an adventure to a trail near you!
         </div>
@@ -98,7 +100,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-
+        <script src="./script.js"> </script>
         <!-- Bootstrap JavaScript CDN -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 

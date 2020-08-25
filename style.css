@@ -318,7 +318,9 @@ h2{
 
 }
 
-
+.images {
+    object-fit: contain;
+}
 
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
