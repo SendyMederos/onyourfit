@@ -4,10 +4,7 @@
     box-sizing: border-box;
 }
 
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
+
 body {
     line-height: 1.7em;
     color: #7f8c8d;
@@ -21,7 +18,7 @@ h4,
 h5,
 h6,
 label {
-    color: #34495e;
+    color:chocolate;
 }
 
 .pure-img-responsive {
@@ -31,7 +28,7 @@ label {
 
 /*
  * -- LAYOUT STYLES --
- * These are some useful classes which I will need
+ 
  */
 .l-box {
     padding: 1em;
@@ -68,7 +65,6 @@ label {
 
 /*
  * -- PURE BUTTON STYLES --
- * I want my pure-button elements to look a little different
  */
 .pure-button {
     background-color: #1f8dd6;
@@ -81,13 +77,13 @@ a.pure-button-primary {
     background: chocolate;
     color: white;
     border-radius: 5px;
-    font-size: 120%;
+    font-size: 50%;
 }
 
 
 /*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
+ * -- MENU STYLES --.pure-menu
+ 
  */
 
 .home-menu {
@@ -99,9 +95,9 @@ a.pure-button-primary {
     background: #2d3e50;
 }
 .pure-menu.pure-menu-fixed {
-    /* Fixed menus normally have a border at the bottom. */
+    
     border-bottom: none;
-    /* I need a higher z-index here because of the scroll-over effect. */
+    
     z-index: 4;
 }
 
@@ -128,7 +124,7 @@ a.pure-button-primary {
 
 /*
  * -- SPLASH STYLES --
- * This is the blue top section that appears on the page.
+ 
  */
 
 .splash-container {
@@ -141,35 +137,55 @@ a.pure-button-primary {
     top: 0;
     left: 0;
     position: fixed !important;
+    background: url(hiking4.jpg);
+    background-size: cover;
+    image-rendering: auto;
+    image-rendering: crisp-edges;
 }
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
+    width: 100%;
     height: 50%;
-    margin: auto;
-    position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    margin: auto; 
+    position: absolute; 
+    /* top: 0px; left: 0px; bottom: 10px; right: 30px;   */
     text-align: center;
-    text-transform: uppercase;
+    text-transform: uppercase; 
 }
 
-/* This is the main heading that appears on the blue section */
+/* This is the main heading */
 .splash-head {
-    font-size: 20px;
+    font-size: 5px;
     font-weight: bold;
     color: white;
     border: 3px solid white;
     padding: 1em 1.6em;
-    font-weight: 100;
-    border-radius: 5px;
+    font-weight: 25;
+    border-radius: 2px;
     line-height: 1em;
+    position: absolute;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-left: 50%;
     
+    
+}
+
+#title {
+    font-family: 'Faster One', cursive;
+    font-size: 120px;
+    color: chocolate;
+    font-stretch: expanded;
+    padding-top: 35px;
+    margin-left: 17%;
+      
+
 }
 
 
 
-/* This is the subheading that appears on the blue section */
+/* This is the subheading  */
 .splash-subhead {
     color: white;
     letter-spacing: 0.05em;
@@ -235,14 +251,12 @@ a.pure-button-primary {
 p.splash-subhead {
     color:chocolate;
     font-family: fantasy;
-    font-weight: 30px;
+    font-weight: 20px;
     background-color: white;
 
 }
 
-#title{
-    font-style: cursive;
-}
+
 
 .city-search{
     text-align:center;
@@ -258,6 +272,12 @@ h2{
 
 .search-container{
     text-align: center;
+}
+
+
+
+.citySearch{
+    color: white;
 }
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -304,18 +324,31 @@ h2{
 
     }
     .splash-head {
-        font-size: 350%;
+        font-size: 50%;
         font-family: fantasy;
         color: chocolate;
 
     }
 
+    
 
     /* We remove the border-separator assigned to .l-box-lrg */
     .l-box-lrg {
         border: none;
     }
 
+}
+
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.row h1{
+    color:white;
+    text-align: center;
 }
 
 
@@ -331,4 +364,3 @@ h2{
         font-size: 300%;
     }
 }
-© 2020 GitHub, Inc.
