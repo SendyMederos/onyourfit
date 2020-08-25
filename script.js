@@ -3,34 +3,30 @@
 //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
 //     }
 // });
-
+var trailsURL;
 var lon;
 var lat;
 var city;
+var trailsLength;
 
-// $(".currentLocation").on("click", function () {
-//     event.stopPropagation();
+$(".currentLocation").on("click", function () {
+    event.stopPropagation();
 
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(position);
-//         lat = position.coords.latitude;
-//         lon = position.coords.longitude;
-//     } else {
-//         alert("Geolocation is not supported by this browser.");
-//     }
-//     console.log(lat)
-//     console.log(lon)
-//     console.log("llllllll")
-//     var trailsURL = "https://www.hikingproject.com/data/get-trails?lat="+ lat + "&" + lon + "&maxDistance=10&key=200880336-4b1739fed679fe7233ad0872e74e7fcd"
-//     $.ajax({
-//         url: trailsURL,
-//         method: "getTrails"
-//       }).then(function(response) {
-//         console.log(response)
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
 
-//       }) 
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+})
+function showPosition(position) {
+    lat = position.coords.latitude.toFixed(4);
+    lon = position.coords.longitude.toFixed(4);
+    trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
+    console.log(trailsURL)
+    renderTrails();
 
-// })
+}
 
 $('#submit').click(function () {
     city = $("#search-bar").val();
@@ -46,27 +42,50 @@ $('#submit').click(function () {
         console.log(lat)
         console.log(lon)
 
-        var trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
+        trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
         console.log(trailsURL)
-        $.ajax({
-            url:  trailsURL,
-            method: "GET"
-            
-        }).then(function (response) {
-            console.log(response) 
-            for (i = 0; i < response.trails.length; i++ ){
-                $(".displayBox").append(`<div id = "displayAll${i}" class="card"></div>`)
-                $(`#displayAll${i}`).append(`<h4> ${response.trails[i].name} </h4>`)
-                $(`#displayAll${i}`).append(`<img src="${response.trails[i].imgSqSmall}" class="images">`)
-                $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
-                $(`#displayAll${i}`).append(`<p> ${response.trails[i].summary} </p>`)
+        renderTrails();
 
-            }
-
-        })
     })
 })
+//})
 
+function renderTrails() {
 
+    $.ajax({
+        url: trailsURL,
+        method: "GET"
 
+    }).then(function (response) {
+        console.log(response)
+        trailsLength = response.trails.length;
+        $(".displayBox").empty();
+        
+        for (i = 0; i < trailsLength; i++) {
+            $(".displayBox").append(`<div id = "displayAll${i}"></div>`)
+            $(`#displayAll${i}`).attr("class", "card")
 
+            var trailname = $("<h4> ")
+            $(trailname).html(response.trails[i].name)
+            $(`#displayAll${i}`).append(trailname)
+
+            var trailimage = $("<img>")
+            $(trailimage).attr("src", response.trails[i].imgSqSmall)
+            $(trailimage).attr("class", "images")
+            $(`#displayAll${i}`).append(trailimage)
+
+            var trailLength = $("<p> ")
+            $(trailLength).html(response.trails[i].length + "miles")
+            $(`#displayAll${i}`).append(trailLength)
+
+            //  $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
+
+            var trailsummary = $("<i> ")
+            $(trailsummary).html(response.trails[i].summary)
+            $(`#displayAll${i}`).append(trailsummary)
+
+            //$(`#displayAll${i}`).append(`<p> ${response.trails[i].summary} </p>`)
+
+        }
+    })
+} 
