@@ -60,7 +60,6 @@ function renderTrails() {
         method: "GET"
 
     }).then(function (response) {
-      
         $(".splash-container").empty();
         console.log(response)
         $(".splash-container").append(`<section id= "displayBox" class="container"></section>`)
@@ -80,7 +79,7 @@ function renderTrails() {
             $(`#displayAll${i}`).attr("class", "card col")
             $(`#displayAll${i}`).attr("data-position", i)
            // NAME 
-           var trailname =  $("<h3> ")
+           var trailname =  $("<h4> ")
             $(trailname).html(response.trails[i].name)
             $(`#displayAll${i}`).append(trailname)
             // IMG SM SQ
