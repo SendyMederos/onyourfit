@@ -345,6 +345,9 @@ h2{
 
 }
 
+.images {
+    object-fit: contain;
+}
 
   /* Clear floats after the columns */
   .row:after {
@@ -356,9 +359,6 @@ h2{
     color:white;
     text-align: center;
 }
-
-
-
 /*
  * -- DESKTOP (AND UP) MEDIA QUERIES --
  * On desktops and other large devices, we want to over-ride some
