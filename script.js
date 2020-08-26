@@ -46,10 +46,13 @@ function showPosition(position) {
     zoomOffset: -1,
     accessToken: 'pk.eyJ1Ijoic2ZvcmQ0MTg2IiwiYSI6ImNrZWJsYmR2aTAwOWgycXF0Z2luYW5yYWYifQ.8ySHyDgtKaAj9wJU_AZV4A'
 }).addTo(map);
-var marker=L.marker([latitude, longitude]).addTo(map);
+var marker=L.marker([lat, lon]).addTo(map);
+
+
 marker.bindPopup("<b>You ARe HEre</b>").openPopup();
 
-    renderTrails();
+
+    //renderTrails();
     
 
 }

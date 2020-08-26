@@ -14,9 +14,10 @@ section {
 }
 
 #mapid { 
-    height: 180px; 
-    float: left;
-    width: 50%;
+    height: 300px; 
+    width: 300px;
+    margin-left: 70%;
+    
 }
 
 
