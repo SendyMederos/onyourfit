@@ -10,7 +10,7 @@ var lat;
 var city;
 var trailsLength;
 /// geolocation access
-$(".currentLocation").on("click", function () {
+$("#currentLocation").on("click", function () {
     event.stopPropagation();
     //if they accept to share their location then run showPosition
     if (navigator.geolocation) {
@@ -50,36 +50,51 @@ $('#submit').click(function () {
     })
 })
 //})
-
+function createAside (){
+    
+}
 function renderTrails() {
-
+    createAside();
     $.ajax({
         url: trailsURL,
         method: "GET"
 
     }).then(function (response) {
-        trailsLength = response.trails.length;
-        $(".displayBox").empty();
+      
+        $(".splash-container").empty();
         console.log(response)
-        for (i = 0; i < trailsLength; i++) {
-            $(".displayBox").append(`<div id = "displayAll${i}"></div>`)
-            $(`#displayAll${i}`).attr("class", "card")
-            
-           var trailname =  $("<h4> ")
+        $(".splash-container").append(`<section id= "displayBox" class="container"></section>`)
+        $("#displayBox").append(`<div id= "displayBox1"class="row"></div>`)
+        let x = 1
+        for (i = 0; i < response.trails.length - 1; i++) {
+            if (i===3){
+                $("#displayBox").append(`<div id= "displayBox2"class="row"></div>`)
+                x=2
+            }
+            if (i===6){
+                $("#displayBox").append(`<div id= "displayBox3"class="row"></div>`)
+                x=3
+            }
+
+            $(`#displayBox${x}`).append(`<div id = "displayAll${i}"></div>`)
+            $(`#displayAll${i}`).attr("class", "card col")
+            $(`#displayAll${i}`).attr("data-position", i)
+           // NAME 
+           var trailname =  $("<h3> ")
             $(trailname).html(response.trails[i].name)
             $(`#displayAll${i}`).append(trailname)
-
+            // IMG SM SQ
             var trailimage = $("<img>")     
             $(trailimage).attr("src", response.trails[i].imgSqSmall)
             $(trailimage).attr("class", "images")
             $(`#displayAll${i}`).append(trailimage)
-
+            // LENGTH
             var trailLength =  $("<p> ")
             $(trailLength).html(response.trails[i].length + "miles")
             $(`#displayAll${i}`).append(trailLength)
 
           //  $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
-          
+            // SUMMARY
             var trailsummary =  $("<i> ")
             $(trailsummary).html(response.trails[i].summary)
             $(`#displayAll${i}`).append(trailsummary)
@@ -90,3 +105,52 @@ function renderTrails() {
     })
 } 
 
+function eachtrail() {
+
+    $.ajax({
+        url: trailsURL,
+        method: "GET"
+
+    }).then(function (response) {
+        trailsLength = response.trails.length;
+        $(".displayBox").empty();
+        console.log(response)
+        
+            $(".displayBox").append(`<div id = 'display'></div>`)
+            $('#display').attr("class", "card")
+            // NAME
+           var trailname =  $("<h4> ")
+            $(trailname).html(response.trails[i].name)
+            $(`#display`).append(trailname)
+            //RATTINGS
+            var trailratting  =  $("<p> ")
+            $(trailratting).html(response.trails[i].difficulty)
+            $(`#display`).append(trailratting)
+            // IMG MED 
+            var trailimage = $("<img>")     
+            $(trailimage).attr("src", response.trails[i].imgMedium)
+            $(trailimage).attr("class", "images")
+            $(`#display`).append(trailimage)
+            // DIFFICULTY
+            var traildifficulty =  $("<p> ")
+            $(traildifficulty).html(response.trails[i].difficulty)
+            $(`#display`).append(traildifficulty)
+            // ACSENDING
+            var trailascending =  $("<p> ")
+            $(trailascending).html(response.trails[i].ascent)
+            $(`#display`).append(trailascending)
+            // DESCENDING
+            var traildescending =  $("<p> ")
+            $(traildescending).html(response.trails[i].descent)
+            $(`#display`).append(traildescending)
+            // LENGTH
+            var trailLength =  $("<p> ")
+            $(trailLength).html(response.trails[i].length + "miles")
+            $(`#display`).append(trailLength)
+            // SUMMARY
+            var trailsummary =  $("<i> ")
+            $(trailsummary).html(response.trails[i].summary)
+            $(`#display`).append(trailsummary)
+
+    })
+}
