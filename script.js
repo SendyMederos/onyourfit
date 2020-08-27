@@ -47,9 +47,10 @@ function showPosition(position) {
     accessToken: 'pk.eyJ1Ijoic2ZvcmQ0MTg2IiwiYSI6ImNrZWJsYmR2aTAwOWgycXF0Z2luYW5yYWYifQ.8ySHyDgtKaAj9wJU_AZV4A'
 }).addTo(map);
 var marker=L.marker([lat, lon]).addTo(map);
+marker.bindPopup("<b>You Are Here</b>").openPopup();
 
-
-marker.bindPopup("<b>You ARe HEre</b>").openPopup();
+var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
+marker5.bindPopup(response.trails[1].name).openPopup();
 
 
     //renderTrails();
@@ -128,6 +129,7 @@ function renderTrails() {
             $(`#displayAll${i}`).append(trailsummary)
 
           //$(`#displayAll${i}`).append(`<p> ${response.trails[i].summary} </p>`)
+          
 
         }
         

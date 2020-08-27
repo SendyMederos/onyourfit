@@ -20,6 +20,40 @@ section {
     
 }
 
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color:chocolate;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: chocolate;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
+
 
 body {
     
@@ -248,7 +282,6 @@ a.pure-button-primary {
     min-height: 12%;
     z-index: 2;
     background: white;
-
 } */
 
 /* We want to give the content area some more padding */
@@ -297,7 +330,6 @@ a.pure-button-primary {
     font-family: fantasy;
     font-weight: 20px;
     background-color: white;
-
 } */
 
 
@@ -336,9 +368,9 @@ a.pure-button-primary {
         }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
-        height: 500px;
-    }*/
+   /* .splash-container {
+        height: 100%;
+    } */
 
     /* We decrease the width of the .splash, since we have more width
     to work with */
@@ -347,19 +379,12 @@ a.pure-button-primary {
         height: 50%;
         
     }
+      
 
-    
 
-
-   /* .splash-container {
-        background: url(hiking4.jpg);
-        background-size: cover;
-        image-rendering: auto;
-        image-rendering: crisp-edges;
-        
-    } */
+   
     .splash-head {
-        font-size: 50%;
+        font-size: 100%;
         font-family: fantasy;
         color: chocolate;
 
@@ -402,3 +427,24 @@ a.pure-button-primary {
         font-size: 300%;
     }
 }
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    body {
+      width: 100%;
+    }
+
+   #title {
+        width: 100%
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
