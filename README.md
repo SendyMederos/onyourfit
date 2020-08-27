@@ -15,6 +15,12 @@ SO THAT I can maximaize my experience
 GIVEN a hiking website
 WHEN I
 THEN I
+WHEN I
+THEN I
+WHEN I
+THEN I
+WHEN I
+THEN I
 ```
 
 The following image demonstrates the application functionality:
