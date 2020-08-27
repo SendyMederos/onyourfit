@@ -15,17 +15,19 @@ $("#currentLocation").on("click", function () {
     event.stopPropagation();
     //if they accept to share their location then run showPosition
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        renderTrails()
+        // navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 })
 // once permited we can access to the location to get the lat and lon
 // pass this parameters to trailsURL 
-function showPosition(position) {
-    lat = position.coords.latitude.toFixed(4);
-    lon = position.coords.longitude.toFixed(4);
-    trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
+function showPosition(lat, lon, name) {
+    // console.log(position)
+    // lat = position.coords.latitude.toFixed(4);
+    // lon = position.coords.longitude.toFixed(4);
+    // trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
     console.log(trailsURL)
 
     //  THIS IS MAP
@@ -40,10 +42,10 @@ function showPosition(position) {
         accessToken: 'pk.eyJ1Ijoic2ZvcmQ0MTg2IiwiYSI6ImNrZWJsYmR2aTAwOWgycXF0Z2luYW5yYWYifQ.8ySHyDgtKaAj9wJU_AZV4A'
     }).addTo(map);
     var marker = L.marker([lat, lon]).addTo(map);
-    marker.bindPopup("<b>You Are Here</b>").openPopup();
+    marker.bindPopup(`<b>${name}</b>`).openPopup();
     // var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
     // marker5.bindPopup(response.trails[1].name).openPopup();
-    renderTrails();
+    // renderTrails();
 }
 // 
 $('#submit').click(function () {
@@ -108,8 +110,9 @@ function renderTrails() {
             }
 
             $(`#displayBox${x}`).append(`<div id = "displayAll${i}"></div>`)
-            $(`#displayAll${i}`).attr("class", "card col")
+            $(`#displayAll${i}`).attr("class", "card col trailCard")
             $(`#displayAll${i}`).attr("data-position", i)
+            $(`#displayAll${i}`).attr("data-trailId", response.trails[i].id)
             // NAME 
             var trailname = $("<h4> ")
             $(trailname).html(response.trails[i].name)
@@ -135,65 +138,69 @@ function renderTrails() {
             //$(`#displayAll${i}`).append(`<p> ${response.trails[i].summary} </p>`)
 
         }
-        $(".images").click(function (event) {
-            event.stopPropagation()
-            event.preventDefault()
-            whatTrail = event.target.id;
-            eachtrail();
-        })
 
     })
 
 }
+$(".splash-container").on("click", ".trailCard", function (event) {
+    event.stopPropagation()
+    event.preventDefault()
+    console.log($(this).attr('data-trailId'))
+    whatTrail = $(this).attr('data-trailId');
+    eachtrail(whatTrail);
+})
 
 
 
-function eachtrail() {
+function eachtrail(trailID) {
 
     $.ajax({
-        url: trailsURL,
+        url: `https://www.hikingproject.com/data/get-trails-by-id?ids=${trailID}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`,
         method: "GET"
 
     }).then(function (response) {
         trailsLength = response.trails.length;
         $("#displayBox").empty();
-        console.log(response)
-
+        console.log(response, "<====")
+        console.log(response.trails[0].latitude)
         $("#displayBox").append(`<div id = 'display'></div>`)
         $('#display').attr("class", "uniquecard")
         // NAME
         var trailname = $("<h4> ")
-        $(trailname).html(response.trails[whatTrail].name)
+        $(trailname).html(response.trails[0].name)
         $(`#display`).append(trailname)
         //RATTINGS
         var trailratting = $("<p> ")
-        $(trailratting).html("Rating: " + response.trails[whatTrail].stars)
+        $(trailratting).html("Rating: " + response.trails[0].stars)
         $(`#display`).append(trailratting)
         // IMG MED 
-        var trailimage = $("<img>")
-        $(trailimage).attr("src", response.trails[whatTrail].imgSmallMed)
-        $(trailimage).attr("class", "images")
-        $(`#display`).append(trailimage)
+        var topGrid = $("<div class='pure-g'>")
+        var trailimage = $("<img class='pure-u-md-1-2 images'>")
+        $(trailimage).attr("src", response.trails[0].imgSmallMed)
+
+        var mapSpan = $("<div class='map pure-u-md-1-2' id='mapid'>")
+        $(topGrid).append(trailimage, mapSpan)
+        $('#display').append(topGrid)
         // DIFFICULTY
         var traildifficulty = $("<p> ")
-        $(traildifficulty).html(response.trails[whatTrail].difficulty)
+        $(traildifficulty).html(response.trails[0].difficulty)
         $(`#display`).append(traildifficulty)
         // ACSENDING
         var trailascending = $("<p> ")
-        $(trailascending).html("Ascending: " + response.trails[whatTrail].ascent + "feet")
+        $(trailascending).html("Ascending: " + response.trails[0].ascent + "feet")
         $(`#display`).append(trailascending)
         // DESCENDING
         var traildescending = $("<p> ")
-        $(traildescending).html("Descending: " + response.trails[whatTrail].descent + "feet")
+        $(traildescending).html("Descending: " + response.trails[0].descent + "feet")
         $(`#display`).append(traildescending)
         // LENGTH
         var trailLength = $("<p> ")
-        $(trailLength).html("Trail length: " + response.trails[whatTrail].length + "miles")
+        $(trailLength).html("Trail length: " + response.trails[0].length + "miles")
         $(`#display`).append(trailLength)
         // SUMMARY
         var trailsummary = $("<i> ")
-        $(trailsummary).html(response.trails[whatTrail].summary)
+        $(trailsummary).html(response.trails[0].summary)
         $(`#display`).append(trailsummary)
-
+        showPosition(response.trails[0].latitude, response.trails[0].longitude, response.trails[0].name)
     })
 }

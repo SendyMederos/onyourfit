@@ -30,9 +30,9 @@ section {
 }
 
 #mapid { 
-    height: 300px; 
-    width: 300px;
-    margin-left: 70%;
+    height: 200px; 
+    max-width: 100%;
+    /* margin-left: 70%; */
     
 }
 
@@ -468,4 +468,9 @@ a.pure-button-primary {
     body {
       background-color: lightgreen;
     }
+  }
+  @media (max-width: 768px) {
+      #mapid{
+          width :400px;
+      }
   }
