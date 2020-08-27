@@ -49,6 +49,7 @@ $('#submit').click(function () {
 })
 //})
 // function createAside (){
+   
 //     $("#main-row").append(`<aside id= "aside" class="grid-col-4"></aside>`)
 //     $("#aside").append("<h3> Find more Trails: <h3>")
 //     $("#aside").append('<input type="text" id="search-bar" placeholder="By City Name"> ')   
@@ -64,6 +65,7 @@ $('#submit').click(function () {
 //     $("#list").append('<li></li>')
 //     $("#list").append('<li></li>')
 // }
+
 ///   THIS IS MAP
 // var map= L.map('mapid')
 //     map.setView([lat, lon],13)
@@ -79,6 +81,7 @@ $('#submit').click(function () {
 // marker.bindPopup("<b>You Are Here</b>").openPopup();
 // var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
 // marker5.bindPopup(response.trails[1].name).openPopup();
+
 function renderTrails() {
     $(".splash-container").empty();
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
@@ -88,7 +91,7 @@ function renderTrails() {
         method: "GET"
     }).then(function (response) {
         console.log(response)
-        $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
+                $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
         $("#main-col").append(`<section id= "displayBox"></section>`)
         $("#displayBox").append(`<div id= "displayBox1"class="row card-row"></div>`)
         let x = 1
@@ -101,6 +104,7 @@ function renderTrails() {
                 $("#displayBox").append(`<div id= "displayBox3"class="row card-row"></div>`)
                 x=3
             }
+
             $(`#displayBox${x}`).append(`<div id = "displayAll${i}"></div>`)
             $(`#displayAll${i}`).attr("class", "card col")
             $(`#displayAll${i}`).attr("data-position", i)
@@ -119,12 +123,15 @@ function renderTrails() {
             var trailLength =  $("<p> ")
             $(trailLength).html(response.trails[i].length + "miles")
             $(`#displayAll${i}`).append(trailLength)
+
           //  $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
             // SUMMARY
             var trailsummary =  $("<i> ")
             $(trailsummary).html(response.trails[i].summary)
             $(`#displayAll${i}`).append(trailsummary)
+
           //$(`#displayAll${i}`).append(`<p> ${response.trails[i].summary} </p>`)
+                  
         }
         $(".images").click(function (event){
             event.stopPropagation()
@@ -132,16 +139,24 @@ function renderTrails() {
             whatTrail = event.target.id;
             eachtrail();
         })
+     
     })
+
 } 
+
+
+
 function eachtrail() {
+   
     $.ajax({
         url: trailsURL,
         method: "GET"
+
     }).then(function (response) {
         trailsLength = response.trails.length;
         $("#displayBox").empty();
         console.log(response)
+        
             $("#displayBox").append(`<div id = 'display'></div>`)
             $('#display').attr("class", "uniquecard")
             // NAME
@@ -177,5 +192,6 @@ function eachtrail() {
             var trailsummary =  $("<i> ")
             $(trailsummary).html(response.trails[whatTrail].summary)
             $(`#display`).append(trailsummary)
+
     })
 }
