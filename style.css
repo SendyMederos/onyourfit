@@ -8,16 +8,74 @@
 }
 section {
     margin-left: 20%;
-   margin-top: 3%;
     margin-bottom: 10%;
+  
+}
+    .uniquecard {
+    padding: 20px;
+    margin: 10%;
+    color: black;
+    font-weight: bold;
+    text-shadow: 5px 5px 7px rgb(73, 72, 71); 
+    border-radius: 30px;
+    width: 80%;
+    max-width: 80%;
+    height: 80%;
+    max-height: 80%;
+    background-color: rgba(500, 500, 500, 0.827);
+    
+    animation: fadeInLeft; 
+        animation-duration: 2s;
+
+}
+
+#mapid { 
+    height: 300px; 
+    width: 300px;
+    margin-left: 70%;
     
 }
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color:chocolate;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+    background-color: chocolate;
+    color: white;
+  }
+  
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+    display: none;
+  }
 
 body {
     
     color: #7f8c8d;
     font-size: 13px;
 }
+
 .card {
     display: inline-table;
     text-align: center;
@@ -35,6 +93,7 @@ body {
         animation-duration: 2s;
     
 }
+
 h1,
 h2,
 h3,
@@ -44,6 +103,7 @@ h6,
 label {
     color:chocolate;
 }
+
 
 .pure-img-responsive {
     max-width: 100%;
@@ -154,7 +214,7 @@ a.pure-button-primary {
 .splash-container {
     /* background: #1f8dd6; */
     /* z-index: 1; */
-    overflow: hidden;
+    overflow: auto;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
     height: 100%;
@@ -192,10 +252,12 @@ a.pure-button-primary {
     position: absolute;
     text-align: center;
     padding-bottom: 10px;
-    margin-left: 50%;
+    margin-left: 60%;
     
     
 }
+
+/*Formatting and animating the title */
 
 #title {
     font-family: 'Faster One', cursive;
@@ -203,13 +265,13 @@ a.pure-button-primary {
     color: chocolate;
     /* font-stretch: expanded; */
     padding-top: 35px;
-    margin-left: 17%;
+    margin-left: 18%;
 
         /* display: inline-block; */
         /* margin: 0 0.5rem; */
       
         animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
-        animation-duration: 2s; /* don't forget to set a duration! */
+        animation-duration: 2s; 
       }   
 
 
@@ -225,50 +287,49 @@ a.pure-button-primary {
 
 /*
  * -- CONTENT STYLES --
- * This represents the content area (everything below the blue section)
+ * This represents the content area
  */
-.content-wrapper {
+/* .content-wrapper { */
     /* These styles are required for the "scroll-over" effect */
-    position: absolute;
+    /* position: absolute;
     top: 87%;
     width: 100%;
     min-height: 12%;
     z-index: 2;
     background: white;
-
-}
+} */
 
 /* We want to give the content area some more padding */
-.content {
+/* .content {
     padding: 1em 1em 3em;
-}
+} */
 
 /* This is the class used for the main content headers (<h2>) */
-.content-head {
+/* .content-head {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin: 2em 0 1em;
-}
+} */
 
 /* This is a modifier class used when the content-head is inside a ribbon */
-.content-head-ribbon {
+/* .content-head-ribbon {
     color: white;
-}
+} */
 
 /* This is the class used for the content sub-headers (<h3>) */
-.content-subhead {
+/* .content-subhead {
     color: #1f8dd6;
 }
     .content-subhead i {
         margin-right: 7px;
-    }
+    } */
 
 /* This is the class used for the dark-background areas. */
-.ribbon {
+/* .ribbon {
     background: #2d3e50;
     color: #aaa;
-}
+} */
 
 /* This is the class used for the footer */
 .footer {
@@ -279,14 +340,12 @@ a.pure-button-primary {
     width: 100%;
 }
 
-p.splash-subhead {
+/* p.splash-subhead {
     color:chocolate;
     font-family: fantasy;
     font-weight: 20px;
     background-color: white;
-
-}
-
+} */
 
 
 .city-search,
@@ -312,7 +371,6 @@ p.splash-subhead {
    /* body {
         font-size: 16px;
     }
-
     /* We can align the menu header to the left, but float the
     menu items to the right. */
     .home-menu {
@@ -324,9 +382,9 @@ p.splash-subhead {
         }
 
     /* We increase the height of the splash-container */
-/*    .splash-container {
-        height: 500px;
-    }*/
+   /* .splash-container {
+        height: 100%;
+    } */
 
     /* We decrease the width of the .splash, since we have more width
     to work with */
@@ -335,6 +393,7 @@ p.splash-subhead {
         height: 50%;
         
     }
+      
 
 
    /* .splash-container {
@@ -345,8 +404,9 @@ p.splash-subhead {
         
 
     } */
+
     .splash-head {
-        font-size: 50%;
+        font-size: 100%;
         font-family: fantasy;
         color: chocolate;
 
@@ -389,3 +449,24 @@ p.splash-subhead {
         font-size: 300%;
     }
 }
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    body {
+      width: 100%;
+    }
+
+   #title {
+        width: 100%
+    }
+  }
+
+  @media screen and (min-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
