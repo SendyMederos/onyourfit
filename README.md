@@ -4,7 +4,7 @@ This application is designed to assist hikers find the best trail in a city base
 
 ## User Story
 ```
-AS A hicker
+AS A hiker
 I WANT to find the hiking trail in a city that will best accommodate my needs
 SO THAT I can maximaize my experience
 ```

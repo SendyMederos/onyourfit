@@ -81,6 +81,7 @@ $('#submit').click(function () {
 // marker.bindPopup("<b>You Are Here</b>").openPopup();
 // var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
 // marker5.bindPopup(response.trails[1].name).openPopup();
+
 function renderTrails() {
     $(".splash-container").empty();
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
