@@ -16,7 +16,6 @@ $("#currentLocation").on("click", function () {
     //if they accept to share their location then run showPosition
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
-
     } else {
         alert("Geolocation is not supported by this browser.");
     }
@@ -29,7 +28,6 @@ function showPosition(position) {
     trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
     console.log(trailsURL)
     renderTrails();
-
 }
 // 
 $('#submit').click(function () {
@@ -47,7 +45,6 @@ $('#submit').click(function () {
         trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
         console.log(trailsURL)
         renderTrails();
-
     })
 })
 //})
@@ -69,6 +66,21 @@ $('#submit').click(function () {
 //     $("#list").append('<li></li>')
 // }
 
+///   THIS IS MAP
+// var map= L.map('mapid')
+//     map.setView([lat, lon],13)
+//     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+//     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+//     maxZoom: 18,
+//     id: 'mapbox/streets-v11',
+//     tileSize: 512,
+//     zoomOffset: -1,
+//     accessToken: 'pk.eyJ1Ijoic2ZvcmQ0MTg2IiwiYSI6ImNrZWJsYmR2aTAwOWgycXF0Z2luYW5yYWYifQ.8ySHyDgtKaAj9wJU_AZV4A'
+// }).addTo(map);
+// var marker=L.marker([lat, lon]).addTo(map);
+// marker.bindPopup("<b>You Are Here</b>").openPopup();
+// var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
+// marker5.bindPopup(response.trails[1].name).openPopup();
 function renderTrails() {
     $(".splash-container").empty();
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
@@ -76,11 +88,9 @@ function renderTrails() {
     $.ajax({
         url: trailsURL,
         method: "GET"
-
     }).then(function (response) {
         console.log(response)
-       
-        $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
+                $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
         $("#main-col").append(`<section id= "displayBox"></section>`)
         $("#displayBox").append(`<div id= "displayBox1"class="row card-row"></div>`)
         let x = 1
