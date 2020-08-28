@@ -5,19 +5,30 @@
 }
 .row {
     text-align: center
+
 }
+.mainweather{
+    float:right;
+    position: relative;
+    margin-left: 30px;
+    margin-bottom: 10%; 
+    margin-top: 10px;   
+}
+.mainweather .card1{
+    
+    background-color: rgba(72, 167, 245, 0.336);
+   text-align: center;
+    height: fit-content;
+    width: 180px;
+    display: inline-block;
+    margin-right: 5px;
+   
 
-/*aside {
- 
-    background-color: rgba(500, 500, 500, 0.427);
-    float:left;
-    height: 100%;
-    margin: 5%;
-    padding: 15px;
-    animation: bounceInBottom; 
-    animation-duration: 2s;
-
-} */
+} 
+.weather h5, h6 {
+    margin-bottom: 1px;
+    margin-top: 0px;
+}
 
 
 section {
@@ -26,7 +37,7 @@ section {
   
 }
     .uniquecard {
-
+  
     padding: 20px;
     margin: 10%;
     color: black;

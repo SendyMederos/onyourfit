@@ -190,9 +190,13 @@ function eachtrail(trailID) {
         var trailimage = $("<img class='pure-u-md-1-2 images'>")
         $(trailimage).attr("src", response.trails[0].imgSmallMed)
 
+        ///MAP
         var mapSpan = $("<div class='map pure-u-md-1-2' id='mapid'>")
         $(topGrid).append(trailimage, mapSpan)
         $('#display').append(topGrid)
+       //WEATHER
+       $("#display").append(`<div id = "allweather" class = "mainweather " > </div>`);
+
         // DIFFICULTY
         var traildifficulty = $("<p> ")
         $(traildifficulty).html(response.trails[0].difficulty)
@@ -214,6 +218,29 @@ function eachtrail(trailID) {
         $(trailsummary).html(response.trails[0].summary)
         $(`#display`).append(trailsummary)
         showPosition(response.trails[0].latitude, response.trails[0].longitude, response.trails[0].name)
+    
+
+    var oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&" + "lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=420fa54141903a76b9ac423622e9920d"
+
+    $.ajax({
+        url: oneCallURL,
+        method: "GET"
+    }).then(function (response1) {
+        console.log(response1)
+
+   
+        var nextdays = ["Today","Tomorrow", "After_Tomorrow"]
+        for (i = 0; i <= 2; i++) {
+            iconCode = response1.daily[i].weather[0].icon;
+            iconUrl = "https://openweathermap.org/img/w/" + iconCode + ".png";
+            $("#allweather").append(`<div id = "${nextdays[i]}" class = "weather card1" > </div>`);
+            $(`#${nextdays[i]}`).append(`<h5> ${nextdays[i]} <img src = "${iconUrl}" class="icon">  </h5>`)
+            $(`#${nextdays[i]}`).append(`<h6><i>${moment(response1.daily[i].dt * 1000).format("ddd,  MMMM DD")}<i></h6>`);
+          //  $(`#${nextdays[i]}`).append(``);
+            $(`#${nextdays[i]}`).append(`<p>Temp: ${response1.daily[i].temp.day}°F</p>`);
+            $(`#${nextdays[i]}`).append(`<p>Humidity: ${response1.daily[i].humidity}%</p>`);
+        }
     })
+})
 }
 
