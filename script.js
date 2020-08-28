@@ -3,6 +3,7 @@
 //         options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
 //     }
 // });
+
 //global scope variables
 var trailsURL;
 var lon;
@@ -10,27 +11,35 @@ var lat;
 var city;
 var trailsLength;
 var whatTrail;
-/// geolocation access
+
+/// Get geolocation access 
 $("#currentLocation").on("click", function () {
     event.stopPropagation();
-    //if they accept to share their location then run showPosition
+    //if they accept to share their location then run getPosition
     if (navigator.geolocation) {
-        renderTrails()
-        // navigator.geolocation.getCurrentPosition(showPosition);
+       //renderTrails()
+        navigator.geolocation.getCurrentPosition(getPosition);
     } else {
         alert("Geolocation is not supported by this browser.");
     }
 })
+
+//Gathers coordinates of user's current location to render the trails
+function getPosition(position){
+     console.log(position)
+    lat = position.coords.latitude.toFixed(4);
+    lon = position.coords.longitude.toFixed(4);
+    trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
+    renderTrails()
+}
+
 // once permited we can access to the location to get the lat and lon
 // pass this parameters to trailsURL 
 function showPosition(lat, lon, name) {
-    // console.log(position)
-    // lat = position.coords.latitude.toFixed(4);
-    // lon = position.coords.longitude.toFixed(4);
-    // trailsURL = `https://www.hikingproject.com:443/data/get-trails?lat=${lat}&lon=${lon}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`
+   
     console.log(trailsURL)
 
-    //  THIS IS MAP
+    // Used mapbox and leaflet javascript library to get map and marker
     var map = L.map('mapid')
     map.setView([lat, lon], 13)
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -43,11 +52,10 @@ function showPosition(lat, lon, name) {
     }).addTo(map);
     var marker = L.marker([lat, lon]).addTo(map);
     marker.bindPopup(`<b>${name}</b>`).openPopup();
-    // var marker5 = L.marker([response.trails[1].latitude, response.trails[1].longitude]).addTo(map);
-    // marker5.bindPopup(response.trails[1].name).openPopup();
+   
     // renderTrails();
 }
-// 
+
 $('#submit').click(function () {
     city = $("#search-bar").val();
     var weatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=420fa54141903a76b9ac423622e9920d`
@@ -85,7 +93,7 @@ $('#submit').click(function () {
 // }
 
 
-
+//This function renders an array of trails based on the users current location or a city of their choice
 function renderTrails() {
     $(".splash-container").empty();
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
@@ -150,8 +158,18 @@ $(".splash-container").on("click", ".trailCard", function (event) {
     eachtrail(whatTrail);
 })
 
+//When a specific "trailCard" is clicked inside of the splash-container,  render the ID of that specific trail.
+$(".splash-container").on("click", ".trailCard", function (event) {
+    event.stopPropagation()
+    event.preventDefault()
+    console.log($(this).attr('data-trailId'))
+    whatTrail = $(this).attr('data-trailId');
+    eachtrail(whatTrail);
+})
 
 
+//This function passes in the specific clicked trailID and returns info on the specified trail
+//Used Pure CSS framework for grid layout for map 
 function eachtrail(trailID) {
 
     $.ajax({
