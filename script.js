@@ -150,6 +150,13 @@ function renderTrails() {
     })
 
 }
+$(".splash-container").on("click", ".trailCard", function (event) {
+    event.stopPropagation()
+    event.preventDefault()
+    console.log($(this).attr('data-trailId'))
+    whatTrail = $(this).attr('data-trailId');
+    eachtrail(whatTrail);
+})
 
 //When a specific "trailCard" is clicked inside of the splash-container,  render the ID of that specific trail.
 $(".splash-container").on("click", ".trailCard", function (event) {
