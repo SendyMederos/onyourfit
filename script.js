@@ -215,3 +215,4 @@ function eachtrail(trailID) {
         showPosition(response.trails[0].latitude, response.trails[0].longitude, response.trails[0].name)
     })
 }
+
