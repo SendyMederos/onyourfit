@@ -25,9 +25,9 @@
    
 
 } 
-.weather h5, h6 {
-    margin-bottom: 1px;
-    margin-top: 0px;
+.card1 h6 {
+   
+    margin-top: -35px;
 }
 
 
@@ -55,9 +55,9 @@ section {
 }
 
 #mapid { 
-    height: 200px; 
+    height: auto; 
     max-width: 100%;
-    /* margin-left: 70%; */
+     /*margin-left: 70%; */
     
 }
 
@@ -442,7 +442,10 @@ a.pure-button-primary {
     }
 
     #mapid{
-        width :400px;
+        height: 300px;
+        /*max-height: 300px ; */
+        width :100%;
+        
     }
     body{
       width: 100%;

@@ -236,7 +236,6 @@ function eachtrail(trailID) {
             $("#allweather").append(`<div id = "${nextdays[i]}" class = "weather card1" > </div>`);
             $(`#${nextdays[i]}`).append(`<h5> ${nextdays[i]} <img src = "${iconUrl}" class="icon">  </h5>`)
             $(`#${nextdays[i]}`).append(`<h6><i>${moment(response1.daily[i].dt * 1000).format("ddd,  MMMM DD")}<i></h6>`);
-          //  $(`#${nextdays[i]}`).append(``);
             $(`#${nextdays[i]}`).append(`<p>Temp: ${response1.daily[i].temp.day}°F</p>`);
             $(`#${nextdays[i]}`).append(`<p>Humidity: ${response1.daily[i].humidity}%</p>`);
         }
