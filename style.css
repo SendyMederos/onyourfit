@@ -36,7 +36,7 @@ section {
     
 }
 
-/* Add a black background color to the top navigation */
+/* Add a orange background color to the top navigation */
 .topnav {
     background-color:chocolate;
     overflow: hidden;
@@ -174,7 +174,7 @@ a.pure-button-primary {
  * -- MENU STYLES --.pure-menu
  
  */
-
+/* 
 .home-menu {
     padding: 0.5em;
     text-align: center;
@@ -208,7 +208,7 @@ a.pure-button-primary {
     background: none;
     border: none;
     color: #AECFE5;
-}
+} */
 
 
 /*
