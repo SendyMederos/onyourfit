@@ -38,10 +38,10 @@
     <!--Menu Bar-->
 
     <div class="topnav" id="myTopnav">
-        <a href="index.html" class="active">New Sarch</a>
+        <a style="float: right; " class="active"><b> On Your Fit Application</b></a>
+        <a href="index.html">New Search</a>
         <!--go back to trails is hiden until -->
         <a id = "trailsAgain">Go back to Trails</a>
-        <p style="float: right;">On Your Fit Application</p>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -51,11 +51,11 @@
 
     <main class="splash-container grid-container">
 
-        <div>
+        <div  style="text-align: center">
             <p class="animate__animated animate__fadeInLeft" id="title">ON YOUR FIT</p>
         </div>
 
-        <div class="splash" style="text-align: center;">
+        <div class="splash" style="text-align: center">
 
             <div class="splash-head">
                 <label for="citySearch">Find A Trail:</label><input type="text" id="search-bar"
@@ -69,8 +69,8 @@
         </div>
 
         <div id="map">
-            <div id="mapid" style="height: 300px"></div>
-
+            <div id="mapid" ></div>
+        </div>
 
 
     </main>
@@ -82,7 +82,7 @@
         Take an adventure to a trail near you!
     </div>
 
-    </div>
+    
 
     <!-- jQuery & MOment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

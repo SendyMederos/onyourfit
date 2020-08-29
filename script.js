@@ -182,14 +182,16 @@ function eachtrail(trailID) {
         var topGrid = $("<div class='pure-g'>")
         var trailimage = $("<img class='pure-u-md-1-2 images'>")
         $(trailimage).attr("src", response.trails[0].imgSmallMed)
-
         ///MAP
         var mapSpan = $("<div class='map pure-u-md-1-2' id='mapid'>")
         $(topGrid).append(trailimage, mapSpan)
         $('#display').append(topGrid)
-
         //WEATHER
         $("#display").append(`<div id = "allweather" class = "mainweather " > </div>`);
+        // LENGTH
+        var trailLength = $("<p> ")
+        $(trailLength).html("Trail length: " + response.trails[0].length + "miles")
+        $(`#display`).append(trailLength)
 
         // DIFFICULTY
         var traildifficulty = $("<p> ")
@@ -203,16 +205,13 @@ function eachtrail(trailID) {
         var traildescending = $("<p> ")
         $(traildescending).html("Descending: " + response.trails[0].descent + "feet")
         $(`#display`).append(traildescending)
-        // LENGTH
-        var trailLength = $("<p> ")
-        $(trailLength).html("Trail length: " + response.trails[0].length + "miles")
-        $(`#display`).append(trailLength)
+        
         // SUMMARY
         var trailsummary = $("<i> ")
         $(trailsummary).html(response.trails[0].summary)
         $(`#display`).append(trailsummary)
         showPosition(response.trails[0].latitude, response.trails[0].longitude, response.trails[0].name)
-
+       
 
         var oneCallURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&" + "lon=" + lon + "&units=imperial&exclude=minutely,hourly&appid=420fa54141903a76b9ac423622e9920d"
 
