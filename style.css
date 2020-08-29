@@ -352,6 +352,67 @@ a.pure-button-primary {
  * On tablets and other medium-sized devices, we want to customize some
  * of the mobile styles.
  */
+@media (min-width: 48em) {
+
+    /* We increase the body font size */
+   /* body {
+        font-size: 16px;
+    }
+
+    /* We increase the height of the splash-container */
+   .splash-container {
+        height: 100%;
+    }
+
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+        
+    }
+
+
+   /* .splash-container {
+        background: url(hiking4.jpg);
+        background-size: cover;
+        image-rendering: auto;
+        image-rendering: crisp-edges;
+     
+
+    } */
+    .splash-head {
+        font-size: 300%;
+        font-family: fantasy;
+        color: chocolate;
+
+    }
+
+    
+
+    /* We remove the border-separator assigned to .l-box-lrg */
+    .l-box-lrg {
+        border: none;
+    }
+
+}
+
+.images {
+    object-fit: contain;
+}
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.row h1{
+    color:white;
+    text-align: center;
+}
+
+
 
   @media only screen and (max-width: 768px) {
     /* For mobile phones: */
@@ -360,6 +421,7 @@ a.pure-button-primary {
         width: 100%;
         height: 100%;
         background-image: url("hiking4.jpg");
+    
     }
 
     .splash-head {
@@ -367,6 +429,7 @@ a.pure-button-primary {
         margin-left: auto;
     }
     
+
    #title {
         width: 100%
     }
@@ -383,50 +446,7 @@ a.pure-button-primary {
       background-image: url("hiking4.jpg");
 
     }
-    /* We increase the height of the splash-container */
-    .splash-container {
-        height: 100%;
-    }
-
-    /* We decrease the width of the .splash, since we have more width
-    to work with */
-    .splash {
-        width: 50%;
-        height: 50%;  
-    }
-
-    .splash-head {
-        font-size: 300%;
-        font-family: fantasy;
-        color: chocolate;
-    }
-
-    /* We remove the border-separator assigned to .l-box-lrg */
-    .l-box-lrg {
-      border: none;
-    }
-
-    }
-
-    .images {
-        object-fit: contain;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-    .row h1{
-        color:white;
-        text-align: center;
-    }
-
-
-
 }
-
   @media only screen and (max-width: 600px) {
     body{
         width: 100%;
