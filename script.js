@@ -13,6 +13,13 @@ var trailsLength;
 var whatTrail;
 
 
+
+
+$("#trailsAgain").on("click", function () {
+    event.stopPropagation();
+    renderTrails();
+})
+
 /// Get geolocation access 
 $("#currentLocation").on("click", function () {
     event.stopPropagation();
@@ -89,15 +96,15 @@ function renderTrails() {
         $("#main-col").append(`<section id= "displayBox"></section>`)
         $("#displayBox").append(`<div id= "displayBox1"class="row card-row"></div>`)
         let x = 1
-        for (i = 0; i < response.trails.length - 1; i++) {
-            if (i === 3) {
+        for (i = 0; i < response.trails.length; i++) {
+            if (i === 5) {
                 $("#displayBox").append(`<div id= "displayBox2"class="row card-row"></div>`)
                 x = 2
             }
-            if (i === 6) {
-                $("#displayBox").append(`<div id= "displayBox3"class="row card-row"></div>`)
-                x = 3
-            }
+            // if (i === 6) {
+            //     $("#displayBox").append(`<div id= "displayBox3"class="row card-row"></div>`)
+            //     x = 3
+            // }
 
             $(`#displayBox${x}`).append(`<div id = "displayAll${i}"></div>`)
             $(`#displayAll${i}`).attr("class", "card col trailCard")
@@ -147,6 +154,10 @@ $(".splash-container").on("click", ".trailCard", function (event) {
 //This function passes in the specific clicked trailID and returns info on the specified trail
 //Used Pure CSS framework for grid layout for map 
 function eachtrail(trailID) {
+   
+
+   
+    ////  ******** show button Go back to trails on the menu bar  ******
 
     $.ajax({
         url: `https://www.hikingproject.com/data/get-trails-by-id?ids=${trailID}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`,
