@@ -13,15 +13,20 @@ SO THAT I can maximaize my experience
 
 ```
 GIVEN a hiking website
-WHEN I
-THEN I
-WHEN I
-THEN I
-WHEN I
-THEN I
-WHEN I
-THEN I
+WHEN I enter the name of a city or search by current location
+THEN I am presented hiking trails in that location
+WHEN I am presented hiking trails in a location
+THEN I am able to click on a trail to view additional information
+WHEN I click on a trail to view additional information
+THEN I can see a map of the location, the trail rating, the trail difficulty, the trail length and a description
+WHEN I click "Go Back To Trails"
+THEN I am returned to the trail window to select another trail based on the location I just searched. 
 ```
+## Technologies Used: 
+* CSS Frameworks: Pure CSS and Animate CSS
+* Third party  APIs: leaflet.js, mapbox and moment.js
+* Server-side APIs: Openweather and Hiking Project
+
 
 The following image demonstrates the application functionality:
 ![On Your Fit Demo]()
