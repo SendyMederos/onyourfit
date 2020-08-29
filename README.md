@@ -23,10 +23,9 @@ WHEN I click "Go Back To Trails"
 THEN I am returned to the trail window to select another trail based on the location I just searched. 
 ```
 ## Technologies Used: 
-Pure CSS, Animate CSS, leaflet.js, mapbox
-
-## APIs: 
-openweather API and hiking project API
+* CSS Frameworks: Pure CSS and Animate CSS
+* Third party  APIs: leaflet.js, mapbox and moment.js
+* Server-side APIs: Openweather and Hiking Project
 
 
 The following image demonstrates the application functionality:
