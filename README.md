@@ -27,6 +27,7 @@ THEN I am returned to the trail window to select another trail based on the loca
 * Third party  APIs: leaflet.js, mapbox and moment.js
 * Server-side APIs: Openweather and Hiking Project
 
+Deployed site: https://plrobbins.github.io/onyourfit/
 
 The following image demonstrates the application functionality:
-![On Your Fit Demo]()
+![On Your Fit Demo](https://github.com/plrobbins/onyourfit/blob/master/assets/img/OnYourFit.png)
