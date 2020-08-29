@@ -65,13 +65,14 @@ body{
 
 #mapid{
     height: 250px;
-    max-width :100%;   
-}
-
-#mapid{
-    height: 250px;
     width :100%;
 }
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    width: fit-content !important;
+    height: fit-content !important;
+    letter-spacing: 0px !important;
+}
+
 .row {
     text-align: center
 }
