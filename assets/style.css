@@ -7,28 +7,27 @@
 body{
     width: 100%;
     height: 100%;
-    background-image: url("hiking4.jpg");
-
+    background-image: url("./img/hiking4.jpg");
 }
 
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 50%;
-    height: 50%;
-    margin: 10%; 
+    width: 90%;
+    height: 90%;
+   
     position: absolute; 
     /* top: 0px; left: 0px; bottom: 10px; right: 30px;   */
     text-align: center;
     text-transform: uppercase; 
 }
 .splash-container {
-    
+    text-align: center;
     overflow: auto;
     width: 100%;
     height: 85%;
     position: fixed !important;
-    background: url(hiking4.jpg);
+    background: url(./img/hiking4.jpg);
     background-size: cover;
     image-rendering: auto;
     image-rendering: crisp-edges;  
@@ -39,12 +38,12 @@ body{
     position: absolute;
     text-align: center;
     font-size: 150%;
-    margin-left: auto;
+   margin-left: 8%;
     font-family: fantasy;
     color: chocolate;
     font-weight: bold;
     border: 3px solid white;
-    padding: 1em 1.6em;
+    padding: 5% 5.5%;
     font-weight: 25;
     border-radius: 2px;
     line-height: 1em;
@@ -55,7 +54,7 @@ body{
 #title {
     /* width: 100%; */
     font-family: 'Faster One', cursive;
-    font-size: 250%;
+    font-size: 350%;
     color: chocolate;
     padding-top: 35px;
     margin-left: ;     
@@ -65,13 +64,14 @@ body{
 
 #mapid{
     height: 250px;
-    max-width :100%;   
-}
-
-#mapid{
-    height: 250px;
     width :100%;
 }
+.leaflet-popup-content-wrapper .leaflet-popup-content {
+    width: fit-content !important;
+    height: fit-content !important;
+    letter-spacing: 0px !important;
+}
+
 .row {
     text-align: center
 }
@@ -206,11 +206,13 @@ a.pure-button-primary {
     color: white;
     border-radius: 5px;
     font-size: 50%;
+    margin:5px;
 }
 
 
 
 .footer {
+    text-align: center;
     background:chocolate;
     color:white;
     position: fixed;
@@ -243,8 +245,50 @@ a.pure-button-primary {
 
 
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 600px) {
+    #mapid { 
+        height: auto; 
+       max-width: 50%;
+        
+         /*margin-left: 70%; */
+    }
+    /* We increase the height of the splash-container */
+   .splash-container {
+        height: 100%;
+    }
+    .splash-head {
+        margin-left: 15%;
+        font-size: 240%;
+        padding: 1em 1.6em;
+    }
+    #title{
+        font-size: 90px;
+    }
+    @media only screen and (min-width: 768px) {
+    body{
+        width: 100%;
+        height: 100%;
+        background-image: url("./img/hiking4.jpg");
+    }
+    .splash-head {
+        margin-left: 25%;
+        font-size: 280%;
+        padding: 1em 1.6em;
+    }
+    #title{
+        font-size: 100px;
+    }
+    .splash {
+        width: 90%;
+        height: 90%;
+        margin: auto;    
+    }
+  
+  
+}
+@media only screen and (min-width: 1040px) {
 
+ 
     #mapid { 
         height: auto; 
        max-width: 50%;
@@ -261,18 +305,21 @@ a.pure-button-primary {
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {
-        width: 50%;
-        height: 50%;
+        width: 90%;
+        height: 90%;
         margin: auto; 
         
     }
   
     /* This is the main heading */
     .splash-head {
-
-        margin-left: 50%;
+        margin-left: 35%;
         font-size: 300%;
+        padding: 1em 1.6em;
     
     }
     
 }
+
+
+  

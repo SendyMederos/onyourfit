@@ -93,12 +93,12 @@ function renderTrails() {
     }).then(function (response) {
         console.log(response)
         $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
-        $("#main-col").append(`<section id= "displayBox"></section>`)
+        $("#main-col").append(`<section id= "displayBox" class= "slideshow-container"></section>`)
         $("#displayBox").append(`<div id= "displayBox1"class="row card-row"></div>`)
         let x = 1
         for (i = 0; i < response.trails.length; i++) {
             if (i === 5) {
-                $("#displayBox").append(`<div id= "displayBox2"class="row card-row"></div>`)
+                $("#displayBox").append(`<div id= "displayBox2"class="row card-row mySlides"></div>`)
                 x = 2
             }
             // if (i === 6) {
