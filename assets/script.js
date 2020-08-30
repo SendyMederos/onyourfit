@@ -14,13 +14,12 @@ var whatTrail;
 
 
 
-
 $("#trailsAgain").on("click", function () {
     event.stopPropagation();
     renderTrails();
 })
 
-/// Get geolocation access 
+// Get geolocation access 
 $("#currentLocation").on("click", function () {
     event.stopPropagation();
     //if they accept to share their location then run getPosition
@@ -42,12 +41,12 @@ function getPosition(position) {
 }
 
 // once permited we can access to the location to get the lat and lon
-// pass this parameters to trailsURL 
+// pass these parameters to trailsURL 
 function showPosition(lat, lon, name) {
 
     console.log(trailsURL)
 
-    // Used mapbox and leaflet javascript library to get map and marker
+    // Used mapbox and leaflet javascript library to render map and marker
     var map = L.map('mapid')
     map.setView([lat, lon], 13)
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -85,6 +84,8 @@ $('#submit').click(function () {
 //This function renders an array of trails based on the users current location or a city of their choice
 function renderTrails() {
     $(".splash-container").empty();
+  
+    
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
     //createAside ();
     $.ajax({
@@ -139,7 +140,6 @@ function renderTrails() {
     })
 
 }
-
 
 //When a specific "trailCard" is clicked inside of the splash-container,  render the ID of that specific trail.
 $(".splash-container").on("click", ".trailCard", function (event) {
@@ -196,14 +196,24 @@ function eachtrail(trailID) {
         // DIFFICULTY
         var traildifficulty = $("<p> ")
         $(traildifficulty).html(response.trails[0].difficulty)
-        $(`#display`).append(traildifficulty)
+        if(response.trails[0].difficulty==="green"){
+            $(`#display`).append("Difficulty: Easy")
+        }else if (response.trails[0].difficulty==="blueGreen"){
+            $(`#display`).append("Difficulty: Easy/Intermediate")
+        } else if(response.trails[0].difficulty==="blue"){
+            $(`#display`).append("Difficulty: Intermediate")
+        } else if (response.trails[0].difficulty==="blueBlack"){
+            $(`#display`).append("Difficulty: Intermediate")
+        } else if (response.trails[0].difficulty==="black"){
+            $(`#display`).append("Difficulty: Difficult")
+        }
         // ACSENDING
         var trailascending = $("<p> ")
-        $(trailascending).html("Ascending: " + response.trails[0].ascent + "feet")
+        $(trailascending).html("Ascending: " + response.trails[0].ascent + " feet")
         $(`#display`).append(trailascending)
         // DESCENDING
         var traildescending = $("<p> ")
-        $(traildescending).html("Descending: " + response.trails[0].descent + "feet")
+        $(traildescending).html("Descending: " + response.trails[0].descent + " feet")
         $(`#display`).append(traildescending)
         
         // SUMMARY
@@ -235,4 +245,3 @@ function eachtrail(trailID) {
         })
     })
 }
-

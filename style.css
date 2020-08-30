@@ -1,0 +1,286 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-image: url("hiking4.jpg");
+
+}
+
+
+.splash {
+    /* absolute center .splash within .splash-container */
+    width: 50%;
+    height: 50%;
+    margin: 10%; 
+    position: absolute; 
+    /* top: 0px; left: 0px; bottom: 10px; right: 30px;   */
+    text-align: center;
+    text-transform: uppercase; 
+}
+.splash-container {
+    
+    overflow: auto;
+    width: 100%;
+    height: 85%;
+    position: fixed !important;
+    background: url(hiking4.jpg);
+    background-size: cover;
+    image-rendering: auto;
+    image-rendering: crisp-edges;  
+    margin-bottom: 15%;
+}
+
+.splash-head {
+    position: absolute;
+    text-align: center;
+    font-size: 150%;
+    margin-left: auto;
+    font-family: fantasy;
+    color: chocolate;
+    font-weight: bold;
+    border: 3px solid white;
+    padding: 1em 1.6em;
+    font-weight: 25;
+    border-radius: 2px;
+    line-height: 1em;
+    padding-bottom: 10px;
+}
+
+
+#title {
+    /* width: 100%; */
+    font-family: 'Faster One', cursive;
+    font-size: 250%;
+    color: chocolate;
+    padding-top: 35px;
+    margin-left: ;     
+    animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; 
+}
+
+#mapid{
+    height: 250px;
+    max-width :100%;   
+}
+
+#mapid{
+    height: 250px;
+    width :100%;
+}
+.row {
+    text-align: center
+}
+
+section .card-row {
+    margin-top: 30px;
+}
+
+.mainweather{
+    float:right;
+    position: relative;
+    margin-left: 30px;
+    margin-bottom: 10%; 
+    margin-top: 10px;   
+}
+.mainweather .card1{
+
+    background-color: rgba(72, 167, 245, 0.336);
+   text-align: center;
+    height: fit-content;
+    width: 180px;
+    display: inline-block;
+    margin-right: 5px;
+} 
+
+.card1 h6 {
+    margin-top: -35px;
+}
+
+
+section {
+    margin-top: 2%;
+    margin-left: 9%;
+    margin-bottom: 20%;
+  
+}
+.uniquecard {
+    background-color: rgba(500, 500, 500, 0.827);
+    color: black;
+    font-weight: bold;
+    text-shadow: 5px 5px 7px rgb(73, 72, 71); 
+    width: 80%;
+    max-width: 80%;
+    height: 80%;
+    max-height: 80%;
+    padding: 20px;
+    margin-left: 5%;
+    border-radius: 30px;
+    animation: fadeInLeft; 
+    animation-duration: 2s;
+}
+
+
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color:chocolate;
+    overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav a {
+    float: left;
+    display: block;
+    color:white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Make the title unresponsive to hover */
+.topnav a.active {
+    background-color: chocolate;
+    color: white;
+}
+  
+ 
+.card {
+    padding-top: 5px;
+    display: inline-table;
+    text-align: center;
+    margin: 7px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 5px 5px 7px rgb(73, 72, 71); 
+    border-radius: 30px;
+    width: 250px;
+    max-width: fit-content;
+    height: 350px;
+    max-height: fit-content;
+    background-color: rgba(500, 500, 500, 0.827);
+    animation: bounceInLeft; 
+    animation-duration: 2s;
+       
+    }
+.card-row :hover {
+        transform: scale(1.1); 
+    }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color:chocolate;
+}
+
+
+.l-box {
+    padding: 1em;
+}
+
+.l-box-lrg {
+    padding: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border: none;
+}
+
+
+a.pure-button-primary {
+    background: chocolate;
+    color: white;
+    border-radius: 5px;
+    font-size: 50%;
+}
+
+
+
+.footer {
+    background:chocolate;
+    color:white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+.city-search,
+ h2,
+.dropdown,
+.search-container {
+    text-align: center;
+}
+.citySearch{
+    color: white;
+}
+
+.images {
+    object-fit: contain;
+}
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.row h1{
+    color:white;
+    text-align: center;
+}
+
+/* a.visible {
+    visibility: visible;
+  }
+  
+  a.hidden {
+    visibility: hidden;
+  }
+   */
+
+
+@media only screen and (min-width: 768px) {
+
+    #mapid { 
+        height: auto; 
+       max-width: 50%;
+        
+         /*margin-left: 70%; */
+    }
+    /* We increase the height of the splash-container */
+   .splash-container {
+        height: 100%;
+    }
+    #title{
+        font-size: 120px;
+    }
+    /* We decrease the width of the .splash, since we have more width
+    to work with */
+    .splash {
+        width: 50%;
+        height: 50%;
+        margin: auto; 
+        
+    }
+  
+    /* This is the main heading */
+    .splash-head {
+
+        margin-left: 50%;
+        font-size: 300%;
+    
+    }
+    
+}
