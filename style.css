@@ -241,6 +241,14 @@ a.pure-button-primary {
     text-align: center;
 }
 
+/* a.visible {
+    visibility: visible;
+  }
+  
+  a.hidden {
+    visibility: hidden;
+  }
+   */
 
 
 @media only screen and (min-width: 768px) {

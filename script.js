@@ -17,7 +17,7 @@ var whatTrail;
 
 $("#trailsAgain").on("click", function () {
     event.stopPropagation();
-    renderTrails();
+    renderTrails();    
 })
 
 /// Get geolocation access 
@@ -85,6 +85,8 @@ $('#submit').click(function () {
 //This function renders an array of trails based on the users current location or a city of their choice
 function renderTrails() {
     $(".splash-container").empty();
+  
+    
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
     //createAside ();
     $.ajax({
@@ -156,6 +158,10 @@ $(".splash-container").on("click", ".trailCard", function (event) {
 function eachtrail(trailID) {
    
 
+    // $("a.topnav").toggleClass("visible");
+    // $("a.active").toggleClass("visible")
+    // $("a.trailsAgain").toggleClass("visible")
+    // $("a.home").toggleClass("visible")
    
     ////  ******** show button Go back to trails on the menu bar  ******
 
