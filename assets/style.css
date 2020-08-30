@@ -10,6 +10,12 @@ body{
     background-image: url("./img/hiking4.jpg");
 }
 
+.visibility-no {
+    visibility: hidden;
+}
+.visibility-yes {
+    visibility: visible;
+}
 
 .splash {
     /* absolute center .splash within .splash-container */
@@ -56,8 +62,7 @@ body{
     font-family: 'Faster One', cursive;
     font-size: 350%;
     color: chocolate;
-    padding-top: 35px;
-    margin-left: ;     
+    padding-top: 35px;     
     animation: bounceInLeft; /* referring directly to the animation's @keyframe declaration */
     animation-duration: 2s; 
 }
@@ -264,6 +269,7 @@ a.pure-button-primary {
     #title{
         font-size: 90px;
     }
+} 
     @media only screen and (min-width: 768px) {
     body{
         width: 100%;
@@ -307,19 +313,13 @@ a.pure-button-primary {
     .splash {
         width: 90%;
         height: 90%;
-        margin: auto; 
-        
+        margin: auto;    
     }
   
     /* This is the main heading */
     .splash-head {
         margin-left: 35%;
         font-size: 300%;
-        padding: 1em 1.6em;
-    
+        padding: 1em 1.6em; 
     }
-    
 }
-
-
-  
