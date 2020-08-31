@@ -92,9 +92,7 @@ function renderTrails() {
         console.log(response)
         $("#main-row").append(`<div id= "main-col"class="grid-col-8"></div>`)
         $("#main-col").append(`<section id= "displayBox" class= "slideshow-container"></section>`)
-        $("#displayBox").append(`<div id= "displayBox1"class="row card-row mySlides"></div>`)
-        $("#displayBox").append(`<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>`)
+        $("#displayBox").append(`<div id= "displayBox1"class="row card-row"></div>`)
         let x = 1
         for (i = 0; i < response.trails.length; i++) {
             if (i === 5) {
@@ -107,7 +105,7 @@ function renderTrails() {
             // }
 
             $(`#displayBox${x}`).append(`<div id = "displayAll${i}"></div>`)
-            $(`#displayAll${i}`).attr("class", "card col trailCard mySlides fade")
+            $(`#displayAll${i}`).attr("class", "card col trailCard")
             // $(`#displayAll${i}`).attr("data-position", i)
             $(`#displayAll${i}`).attr("data-trailId", response.trails[i].id)
             // NAME 
@@ -123,7 +121,7 @@ function renderTrails() {
             $(`#displayAll${i}`).append(trailimage)
             // LENGTH
             var trailLength = $("<p> ")
-            $(trailLength).html(response.trails[i].length + "miles")
+            $(trailLength).html("Length: "+ response.trails[i].length + "miles")
             $(`#displayAll${i}`).append(trailLength)
 
             //  $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
@@ -137,7 +135,8 @@ function renderTrails() {
         }
 
     })
-
+   
+    $("#home").attr("class","visibility-yes");
 }
 
 
@@ -155,7 +154,8 @@ $(".splash-container").on("click", ".trailCard", function (event) {
 //Used Pure CSS framework for grid layout for map 
 function eachtrail(trailID) {
     
-    
+    $("#trailsAgain").attr("class","visibility-yes");
+
     $.ajax({
         url: `https://www.hikingproject.com/data/get-trails-by-id?ids=${trailID}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`,
         method: "GET"
@@ -241,34 +241,5 @@ function eachtrail(trailID) {
             }
         })
     })
-    $("#trailsAgain").attr("class","visibility-yes");
 }
 
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = $(".mySlides");
-  var dots = $(".dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
