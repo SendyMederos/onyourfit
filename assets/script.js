@@ -13,13 +13,12 @@ var trailsLength;
 var whatTrail;
 
 
-
 $("#trailsAgain").on("click", function () {
     event.stopPropagation();
     renderTrails();
 })
 
-// Get geolocation access 
+/// Get geolocation access 
 $("#currentLocation").on("click", function () {
     event.stopPropagation();
     //if they accept to share their location then run getPosition
@@ -41,12 +40,12 @@ function getPosition(position) {
 }
 
 // once permited we can access to the location to get the lat and lon
-// pass these parameters to trailsURL 
+// pass this parameters to trailsURL 
 function showPosition(lat, lon, name) {
 
     console.log(trailsURL)
 
-    // Used mapbox and leaflet javascript library to render map and marker
+    // Used mapbox and leaflet javascript library to get map and marker
     var map = L.map('mapid')
     map.setView([lat, lon], 13)
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -84,8 +83,6 @@ $('#submit').click(function () {
 //This function renders an array of trails based on the users current location or a city of their choice
 function renderTrails() {
     $(".splash-container").empty();
-  
-    
     $(".splash-container").append(`<div id= "main-row"class="grid-row"></div>`)
     //createAside ();
     $.ajax({
@@ -124,7 +121,7 @@ function renderTrails() {
             $(`#displayAll${i}`).append(trailimage)
             // LENGTH
             var trailLength = $("<p> ")
-            $(trailLength).html(response.trails[i].length + "miles")
+            $(trailLength).html("Length: "+ response.trails[i].length + "miles")
             $(`#displayAll${i}`).append(trailLength)
 
             //  $(`#displayAll${i}`).append(`<p> Length:  ${response.trails[i].length} milles </p>`)
@@ -138,8 +135,10 @@ function renderTrails() {
         }
 
     })
-
+   
+    $("#home").attr("class","visibility-yes");
 }
+
 
 //When a specific "trailCard" is clicked inside of the splash-container,  render the ID of that specific trail.
 $(".splash-container").on("click", ".trailCard", function (event) {
@@ -154,10 +153,8 @@ $(".splash-container").on("click", ".trailCard", function (event) {
 //This function passes in the specific clicked trailID and returns info on the specified trail
 //Used Pure CSS framework for grid layout for map 
 function eachtrail(trailID) {
-   
-
-   
-    ////  ******** show button Go back to trails on the menu bar  ******
+    
+    $("#trailsAgain").attr("class","visibility-yes");
 
     $.ajax({
         url: `https://www.hikingproject.com/data/get-trails-by-id?ids=${trailID}&key=200880336-4b1739fed679fe7233ad0872e74e7fcd`,
@@ -209,11 +206,11 @@ function eachtrail(trailID) {
         }
         // ACSENDING
         var trailascending = $("<p> ")
-        $(trailascending).html("Ascending: " + response.trails[0].ascent + " feet")
+        $(trailascending).html("Ascending: " + response.trails[0].ascent + "feet")
         $(`#display`).append(trailascending)
         // DESCENDING
         var traildescending = $("<p> ")
-        $(traildescending).html("Descending: " + response.trails[0].descent + " feet")
+        $(traildescending).html("Descending: " + response.trails[0].descent + "feet")
         $(`#display`).append(traildescending)
         
         // SUMMARY
@@ -245,3 +242,4 @@ function eachtrail(trailID) {
         })
     })
 }
+
